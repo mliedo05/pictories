@@ -1,0 +1,1 @@
+https://manualjamml.herokuapp.com/

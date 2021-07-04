@@ -1,0 +1,10 @@
+<%= form_with(model: @user, url: sessions_path, local: true) do |f| %> 
+  <div class="form-group">
+    <div> <%= f.label :email, class:"text-dark" %> </div> 
+    <div> <%= f.text_field :email, placeholder: 'Ingresa tu email', class:"form-control" %> 
+    </div> 
+    <div> <%= f.label :password, class:"text-dark" %> </div>
+    <div> <%= f.password_field :password, placeholder: 'Ingresa tu contraseña', class:"form-control" %> </div>
+    <%= f.submit "Iniciar Sesion" %> 
+</div>
+<% end %> 

@@ -1,0 +1,38 @@
+<div class="row mb-2">
+  <div class="mb-2">
+    <h1>PicStories</h1>
+  </div>
+  <div class="mb-2">
+    <%= link_to 'New story', new_story_path, class: "btn btn-danger btn-sm" %>
+  </div>
+</div>
+
+<div class="row">
+  <% @stories.each do |story| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+
+        <%= link_to(image_tag(story.picture), story) if story.picture? %>
+        <div class="caption">
+        
+          <h4><%= story.user.name %></h4>
+          <h4><%= story.title %></h4>
+          <small><%= time_ago_in_words(story.created_at) %> ago</small>
+          <p><%= story.content.truncate(150)%></p>
+
+          <p><%= link_to story do %>
+            <i class="fas fa-eye fa-3x text-info"></i>
+          <% end %> 
+          <%= link_to edit_story_path(story) do %> 
+            <i class="fas fa-edit fa-3x text-primary"></i>
+            <% end %> 
+          <%= link_to story, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fas fa-trash fa-3x text-danger"></i>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br>
